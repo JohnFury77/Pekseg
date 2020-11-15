@@ -8,15 +8,15 @@ namespace Pekseg
 {
     class Pekseg
     {
-        string nev;
-        List<Pekaru> termekek = new List<Pekaru>();
-        DateTime alapitva;
+        private string nev;
+        private List<Pekaru> termekek = new List<Pekaru>();
+        private DateTime alapitva;
 
-        public Pekseg(string nev, List<Pekaru> termekek, DateTime alapitva)
+        public Pekseg(string nev, DateTime alapitva)
         {
-            this.nev = nev;
-            this.termekek = termekek;
-            this.alapitva = alapitva;
+            this.Nev = nev;
+            this.termekek = new List<Pekaru>();
+            this.Alapitva = alapitva;
         }
 
         public override string ToString()
@@ -26,8 +26,16 @@ namespace Pekseg
 
         public string Nev { get => nev; set => nev = value; }
         public DateTime Alapitva { get => alapitva; set => alapitva = value; }
-        internal List<Pekaru> Termekek { get => termekek; set => termekek = value; }
+        public void SetTermekek(Pekaru p)
+        {
+            termekek.Add(p);
+        }
 
-        
+        public List<Pekaru> GetTermekek()
+        {
+            return this.termekek;
+        }
+
+
     }
 }
